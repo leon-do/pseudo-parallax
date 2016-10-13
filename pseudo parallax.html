@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Follow the mouse</title>
+	<title>Parallax</title>
 
 
 	<style>
@@ -59,16 +59,18 @@
 		//puts box in the screen
 		resizeBox();
 
-		//when user resizes window, resize the boxes (resizeBox)
+		//if user resizes window, then resize the boxes (resizeBox)
 		window.onresize = resizeBox;
 
 		//resizing box
 		var screenX;
 		var screenY;
 		function resizeBox(){
+			//getting screen width and height
 			screenX = document.getElementById("container").offsetWidth;
 			screenY = document.getElementById("container").offsetHeight;
 
+			//putting the shapes in the middle of the screen
 			document.getElementById("shape1").style.left = screenX/2 + "px";
 			document.getElementById("shape1").style.top = screenY/2 + "px";
 
@@ -83,17 +85,20 @@
 
 		}
 
+
+		// parallax effect
 		window.onmousemove = function(dude){
-
-
+			// get mouse position
 			var mouseX = dude.clientX;
 			var mouseY = dude.clientY;
 
+			// made variables to simplify
 			var shape1 = document.getElementById("shape1");
 			var shape2 = document.getElementById("shape2");
 			var shape3 = document.getElementById("shape3");
 			var shape4 = document.getElementById("shape4");
 
+			// parallax equation
 			shape1.style.left = ((mouseX) - (screenX/2))/1.5 + (screenX/2) + "px";
 			shape1.style.top = ((mouseY) - (screenY/2))/1.5 + (screenY/2) + "px";
 
@@ -106,8 +111,6 @@
 			shape4.style.left = ((mouseX) - (screenX/2))/4 + (screenX/2) + "px";
 			shape4.style.top = ((mouseY) - (screenY/2))/4 + (screenY/2) + "px";
 		}
-
-
 	</script>
 </body>
 </html>
