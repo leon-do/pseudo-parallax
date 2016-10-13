@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Follow the mouse</title>
+
+
+	<style>
+		body{
+			background-color: #292F36;
+		}
+		#container{
+			width:100%;
+			height: 100vh;
+		}
+		#shape1{
+			position: absolute;
+			width:150px;
+			margin-left: -75px;
+			height:150px;
+			margin-top: -75px;
+			background-color: #FF6B6B;
+		}
+		#shape2{
+			position: absolute;
+			width:200px;
+			margin-left: -100px;
+			height:200px;
+			margin-top: -100px;
+			background-color: #FFE66D;
+		}
+		#shape3{
+			position: absolute;
+			width:300px;
+			margin-left: -150px;
+			height:300px;
+			margin-top: -150px;
+			background-color: #4ECDC4;
+		}
+		#shape4{
+			position: absolute;
+			width:400px;
+			margin-left: -200px;
+			height:400px;
+			margin-top: -200px;
+			background-color: #FF6B6B;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="container">
+		<div id="shape4"> </div>
+		<div id="shape3"> </div>
+		<div id="shape2"> </div>
+		<div id="shape1"> </div>
+	</div>
+
+	<script>
+		//puts box in the screen
+		resizeBox();
+
+		//when user resizes window, resize the boxes (resizeBox)
+		window.onresize = resizeBox;
+
+		//resizing box
+		var screenX;
+		var screenY;
+		function resizeBox(){
+			screenX = document.getElementById("container").offsetWidth;
+			screenY = document.getElementById("container").offsetHeight;
+
+			document.getElementById("shape1").style.left = screenX/2 + "px";
+			document.getElementById("shape1").style.top = screenY/2 + "px";
+
+			document.getElementById("shape2").style.left = screenX/2 + "px";
+			document.getElementById("shape2").style.top = screenY/2 + "px";
+
+			document.getElementById("shape3").style.left = screenX/2 + "px";
+			document.getElementById("shape3").style.top = screenY/2 + "px";
+
+			document.getElementById("shape4").style.left = screenX/2 + "px";
+			document.getElementById("shape4").style.top = screenY/2 + "px";
+
+		}
+
+		window.onmousemove = function(dude){
+
+
+			var mouseX = dude.clientX;
+			var mouseY = dude.clientY;
+
+			var shape1 = document.getElementById("shape1");
+			var shape2 = document.getElementById("shape2");
+			var shape3 = document.getElementById("shape3");
+			var shape4 = document.getElementById("shape4");
+
+			shape1.style.left = ((mouseX) - (screenX/2))/1.5 + (screenX/2) + "px";
+			shape1.style.top = ((mouseY) - (screenY/2))/1.5 + (screenY/2) + "px";
+
+			shape2.style.left = ((mouseX) - (screenX/2))/2 + (screenX/2) + "px";
+			shape2.style.top = ((mouseY) - (screenY/2))/2 + (screenY/2) + "px";
+
+			shape3.style.left = ((mouseX) - (screenX/2))/3 + (screenX/2) + "px";
+			shape3.style.top = ((mouseY) - (screenY/2))/3 + (screenY/2) + "px";
+
+			shape4.style.left = ((mouseX) - (screenX/2))/4 + (screenX/2) + "px";
+			shape4.style.top = ((mouseY) - (screenY/2))/4 + (screenY/2) + "px";
+		}
+
+
+	</script>
+</body>
+</html>
+
+<!-- 
+
+Colors from: https://coolors.co/292f36-4ecdc4-f7fff7-ff6b6b-ffe66d
+
+
+
+
